@@ -1,0 +1,17 @@
+# Deploy `web/` (after running build.sh/build.ps1) as a static site, e.g. at
+# checkin.tptsolutions.co.nz. Point Netlify/Cloudflare Pages/etc. at this repo
+# with publish directory `web`, or upload the built `web/` folder directly.
+
+[build]
+  publish = "web"
+  command = "true" # wasm build runs separately via build.sh before deploy
+
+[[headers]]
+  for = "/sw.js"
+  [headers.values]
+    Cache-Control = "no-cache"
+
+[[headers]]
+  for = "/vendor/*.wasm"
+  [headers.values]
+    Content-Type = "application/wasm"

@@ -1,0 +1,32 @@
+[workspace]
+
+[package]
+name         = "tpt-app-checkin-wasm"
+description  = "WASM bindings powering the TPT Check-in offline event ticket scanner"
+version      = "0.1.0"
+edition      = "2021"
+rust-version = "1.84"
+authors      = ["TPT Solutions"]
+license      = "MIT OR Apache-2.0"
+publish      = false
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[features]
+default = ["console_error_panic_hook"]
+
+[dependencies]
+tpt-barcode = { git = "https://github.com/tpt-solutions/tpt-barcode", rev = "47bf3df", default-features = false, features = [
+    "alloc",
+    "1d",
+    "2d",
+    "scan",
+    "render",
+] }
+wasm-bindgen = "0.2"
+console_error_panic_hook = { version = "0.1", optional = true }
+
+[profile.release]
+opt-level = "s"
+lto = true

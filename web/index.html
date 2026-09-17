@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>TPT Check-in — Offline Event Ticket Scanner</title>
+<meta name="description" content="Offline QR ticket check-in for events. Import a ticket list, scan with your phone camera, and track attendance — no internet connection needed." />
+<meta name="theme-color" content="#0f1115" />
+<link rel="manifest" href="manifest.json" />
+<link rel="icon" href="icons/icon.svg" type="image/svg+xml" />
+<link rel="apple-touch-icon" href="icons/icon.svg" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header class="app-header">
+  <div class="brand">
+    <img src="icons/icon.svg" alt="" />
+    <span>TPT Check-in</span>
+    <span class="brand-tag">by <a href="https://tptsolutions.co.nz" target="_blank" rel="noopener">TPT Solutions</a></span>
+  </div>
+  <nav>
+    <a href="#" id="install-link" hidden>Install app</a>
+    <a href="#" id="about-link">About &amp; privacy</a>
+    <a href="https://tptsolutions.co.nz" target="_blank" rel="noopener">tptsolutions.co.nz</a>
+  </nav>
+</header>
+
+<main>
+  <section class="panel" aria-label="Ticket list &amp; scanner">
+    <h2>1. Ticket list</h2>
+    <label for="ticket-file">Import CSV (one ticket ID per line, or first column of a CSV)</label>
+    <input type="file" id="ticket-file" accept=".csv,text/csv,text/plain" />
+    <label for="ticket-paste">…or paste ticket IDs</label>
+    <textarea id="ticket-paste" placeholder="TICKET-0001&#10;TICKET-0002&#10;TICKET-0003"></textarea>
+    <div class="btn-row">
+      <button class="primary" id="load-tickets-btn" type="button">Load / replace ticket list</button>
+      <button class="secondary" id="load-sample-btn" type="button">Load sample tickets</button>
+    </div>
+    <div class="error-box" id="error-box"></div>
+
+    <h2 style="margin-top:20px;">2. Scan</h2>
+    <div class="camera-wrap">
+      <video id="video" playsinline muted></video>
+      <canvas id="overlay"></canvas>
+    </div>
+    <canvas id="capture" hidden></canvas>
+    <div class="btn-row">
+      <button class="primary" id="scan-btn" type="button">Start camera</button>
+      <button class="secondary" id="stop-btn" type="button" disabled>Stop</button>
+    </div>
+    <div class="scan-status" id="scan-status">Camera not started.</div>
+    <div class="scan-flash" id="scan-flash"></div>
+  </section>
+
+  <section class="panel" aria-label="Attendance">
+    <h2>Attendance</h2>
+    <div class="stats-row">
+      <div class="stat"><span class="num" id="stat-total">0</span><span class="label">Total tickets</span></div>
+      <div class="stat"><span class="num" id="stat-checked">0</span><span class="label">Checked in</span></div>
+      <div class="stat"><span class="num" id="stat-remaining">0</span><span class="label">Remaining</span></div>
+    </div>
+
+    <div class="search-row">
+      <input type="text" id="search-box" placeholder="Search ticket ID…" />
+    </div>
+
+    <div class="table-wrap">
+      <table class="ticket-table">
+        <thead>
+          <tr><th>Ticket ID</th><th>Status</th><th>Checked in at</th></tr>
+        </thead>
+        <tbody id="ticket-tbody"></tbody>
+      </table>
+    </div>
+
+    <div class="btn-row">
+      <button class="secondary" id="export-btn" type="button">Export attendance CSV</button>
+      <button class="danger" id="reset-btn" type="button">Reset all check-ins</button>
+    </div>
+  </section>
+</main>
+
+<footer class="app-footer">
+  TPT Check-in is a product of <a href="https://tptsolutions.co.nz" target="_blank" rel="noopener">TPT Solutions</a> —
+  runs entirely on your device, works offline once loaded, your ticket list never leaves your phone or laptop.
+  <br />
+  More tools at <a href="https://tptsolutions.co.nz" target="_blank" rel="noopener">tptsolutions.co.nz</a>.
+</footer>
+
+<dialog id="about-dialog">
+  <h3>About TPT Check-in</h3>
+  <p>TPT Check-in is an offline event ticket scanner by
+     <a href="https://tptsolutions.co.nz" target="_blank" rel="noopener">TPT Solutions</a>.</p>
+  <p><strong>Privacy:</strong> your ticket list and attendance data are stored only in this browser
+     (IndexedDB), on this device. Nothing is uploaded anywhere. Once loaded, the app keeps working
+     with no internet connection — export a CSV at the end of your event to back up attendance.</p>
+  <p>Questions or feedback: visit <a href="https://tptsolutions.co.nz" target="_blank" rel="noopener">tptsolutions.co.nz</a>.</p>
+  <div class="close-row"><button class="primary" id="about-close" type="button">Close</button></div>
+</dialog>
+
+<script type="module" src="main.js"></script>
+</body>
+</html>

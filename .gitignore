@@ -1,0 +1,6 @@
+/target
+/wasm/target
+/wasm/pkg
+/wasm/pkg-node
+/web/vendor
+node_modules
