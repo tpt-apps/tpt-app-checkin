@@ -3,4 +3,6 @@
 /wasm/pkg
 /wasm/pkg-node
 /web/vendor
+/src-tauri/target
+/dist
 node_modules
