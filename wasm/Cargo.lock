@@ -99,7 +99,7 @@ dependencies = [
 [[package]]
 name = "tpt-barcode"
 version = "0.1.0"
-source = "git+https://github.com/tpt-solutions/tpt-barcode?rev=47bf3df#47bf3df410198fb3950c3a30e425470fc01dbeec"
+source = "git+https://github.com/tpt-solutions/tpt-barcode?rev=ebcda30#ebcda30af186ff58c7846299d3d995de10bc460a"
 dependencies = [
  "tpt-barcode-1d",
  "tpt-barcode-2d",
@@ -112,7 +112,7 @@ dependencies = [
 [[package]]
 name = "tpt-barcode-1d"
 version = "0.1.0"
-source = "git+https://github.com/tpt-solutions/tpt-barcode?rev=47bf3df#47bf3df410198fb3950c3a30e425470fc01dbeec"
+source = "git+https://github.com/tpt-solutions/tpt-barcode?rev=ebcda30#ebcda30af186ff58c7846299d3d995de10bc460a"
 dependencies = [
  "tpt-barcode-core",
 ]
@@ -120,7 +120,7 @@ dependencies = [
 [[package]]
 name = "tpt-barcode-2d"
 version = "0.1.0"
-source = "git+https://github.com/tpt-solutions/tpt-barcode?rev=47bf3df#47bf3df410198fb3950c3a30e425470fc01dbeec"
+source = "git+https://github.com/tpt-solutions/tpt-barcode?rev=ebcda30#ebcda30af186ff58c7846299d3d995de10bc460a"
 dependencies = [
  "tpt-barcode-core",
  "tpt-math-geometry",
@@ -130,7 +130,7 @@ dependencies = [
 [[package]]
 name = "tpt-barcode-core"
 version = "0.1.0"
-source = "git+https://github.com/tpt-solutions/tpt-barcode?rev=47bf3df#47bf3df410198fb3950c3a30e425470fc01dbeec"
+source = "git+https://github.com/tpt-solutions/tpt-barcode?rev=ebcda30#ebcda30af186ff58c7846299d3d995de10bc460a"
 dependencies = [
  "tpt-math-numeric",
 ]
@@ -138,7 +138,7 @@ dependencies = [
 [[package]]
 name = "tpt-barcode-image"
 version = "0.1.0"
-source = "git+https://github.com/tpt-solutions/tpt-barcode?rev=47bf3df#47bf3df410198fb3950c3a30e425470fc01dbeec"
+source = "git+https://github.com/tpt-solutions/tpt-barcode?rev=ebcda30#ebcda30af186ff58c7846299d3d995de10bc460a"
 dependencies = [
  "tpt-barcode-core",
  "tpt-math-geometry",
@@ -148,7 +148,7 @@ dependencies = [
 [[package]]
 name = "tpt-barcode-render"
 version = "0.1.0"
-source = "git+https://github.com/tpt-solutions/tpt-barcode?rev=47bf3df#47bf3df410198fb3950c3a30e425470fc01dbeec"
+source = "git+https://github.com/tpt-solutions/tpt-barcode?rev=ebcda30#ebcda30af186ff58c7846299d3d995de10bc460a"
 dependencies = [
  "tpt-barcode-1d",
  "tpt-barcode-2d",

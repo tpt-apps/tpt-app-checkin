@@ -17,7 +17,7 @@ crate-type = ["cdylib", "rlib"]
 default = ["console_error_panic_hook"]
 
 [dependencies]
-tpt-barcode = { git = "https://github.com/tpt-solutions/tpt-barcode", rev = "47bf3df", default-features = false, features = [
+tpt-barcode = { git = "https://github.com/tpt-solutions/tpt-barcode", rev = "ebcda30", default-features = false, features = [
     "alloc",
     "1d",
     "2d",
