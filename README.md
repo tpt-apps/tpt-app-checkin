@@ -62,6 +62,17 @@ To just run the desktop app without building an installer, during
 development: `cargo tauri dev` (after `./build.sh` has populated
 `web/vendor/` at least once).
 
+## Building Mac/Linux installers via CI
+
+`.github/workflows/release.yml` builds Windows, Mac, and Linux installers in
+parallel on GitHub's hosted runners (Tauri can't cross-compile these
+locally) and attaches them to a **draft** GitHub Release. Trigger it either:
+- manually, from the Actions tab ("Release desktop builds" → Run workflow), or
+- by pushing a tag: `git tag app-v0.1.0 && git push origin app-v0.1.0`
+
+Review the draft release and publish it yourself when ready — it's never
+published automatically.
+
 ## Updating the `tpt-barcode` dependency
 
 `wasm/Cargo.toml` pins an exact commit of `tpt-barcode` via `rev = "..."`.
