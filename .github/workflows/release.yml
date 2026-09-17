@@ -8,6 +8,9 @@ on:
     tags:
       - "app-v*"
 
+permissions:
+  contents: write
+
 jobs:
   build:
     strategy:
